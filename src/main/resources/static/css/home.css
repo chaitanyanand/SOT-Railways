@@ -1,0 +1,31 @@
+	
+.main{
+	background-image:url('../images/train_background.jpg');
+	height: 100%;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+   background-attachment: fixed;
+	 
+}
+
+#heading{
+	text-align: right;
+	margin-left: 125px;
+	float:right;
+}
+.username{
+	color: white;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	padding-left: 20rem;
+	padding-right:20rem;
+	padding-bottom: 1rem;
+	margin-left: 2rem;
+	font-family: arial;
+	font-weight: bold;
+	margin-left: 0px;
+	background-color: #6300c6;
+	text-align: center;
+}
+

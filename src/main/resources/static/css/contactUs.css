@@ -1,0 +1,32 @@
+.main{
+	background-image:url('../images/train_background.jpg');
+	height: 100%;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	  background-attachment: fixed;
+}
+.container{
+	color: #3D0673 !important;
+	background-color: #dbcced !important;
+	padding: 2rem 4rem 2rem 4rem !important;
+	opacity: 0.8;
+	border-radius: 25px;
+	width: 60% !important;
+}
+.btn-primary{
+	background-color: #3D0673 !important;
+	color: white !important;
+}
+.btn:hover{
+	color: white !important;
+}
+.btn{
+	font-weight: bolder !important;
+}
+h3{
+	font-weight: bolder !important;
+}
+.font-weight-bold {
+    font-weight: 900 !important;
+}

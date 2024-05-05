@@ -1,0 +1,51 @@
+.main{
+	background-image:url('../images/train_background.jpg');
+	height: 100%;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	  background-attachment: fixed;
+}
+.container{
+	margin-top: 1rem !important;
+	background-color: #3D0673 !important;
+	padding: 0.2rem 0.1rem 0.2rem 0.1rem !important;
+	opacity: 0.9;
+	border-radius: 25px;
+	color: white !important;
+	border: white !important;
+}
+.nav-item{
+	color: white !important;
+}
+.border.border{
+	border: white !important;
+}
+#pills-signup-tab{
+ 	color: white !important;
+	font-weight: white !important;
+ }
+ #pills-signin-tab{
+ 	color: white !important;
+	font-weight: white !important;
+ }
+ .nav-pills .nav-link.active{
+	background-color: #dbcced !important;
+	font-weight: bold !important;
+}
+.btn-primary{
+	background-color: #dbcced !important;
+	color: white !important;
+}
+.btn-primary:hover{
+	color: #3D0673 !important;
+}
+.btn:hover{
+	color: #3D0673 !important;
+}
+.btn{
+	font-weight: bolder !important;
+}
+a{
+	color: white !important;
+}

@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>List Stations</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="" th:href="@{/css/navbar.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/history.css}" />
+</head>
+
+<body class="main">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="child"><img src="" th:src="@{/images/logo.png}" class="logo" alt="" /></div>
+		</div>
+		<div class="child col-lg-7 navv" id="nav">
+			<div th:if="${#session.getAttribute('User')} != null">
+				<div th:replace="fragments/navbar::navbar" class="nav-item"></div>
+			</div>
+			<div th:if="${#session.getAttribute('User')} == null">
+				<div th:replace="fragments/guestUserNavbar::guestUserNavbar" class="nav-item"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>Available Trains</h2>
+		<hr />
+		<table class="table table-bordered table-striped" id="station-table">
+			<thead>
+				<tr>
+					<th>Departure Station</th>
+					<th>Destination Station</th>
+					<th>Departure Date</th>
+					<th>Destination Arrival Date</th>
+					<th>Departure Time</th>
+					<th>Destination Arrival Time</th>
+					<th>Train Name</th>
+					<th>Ticket Fare</th>
+					<th>Vacant Seats</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="trainSearchResult:${trainSearchResultList}">
+					<td th:text="${trainSearchResult.departureStation}"></td>
+					<td th:text="${trainSearchResult.destinationStation}"></td>
+					<td th:text="${trainSearchResult.departureDate}"></td>
+					<td th:text="${trainSearchResult.destinationArrivalDate}"></td>
+					<td th:text="${trainSearchResult.departureTime}"></td>
+					<td th:text="${trainSearchResult.destinationArrivalTime}"></td>
+					<td th:text="${trainSearchResult.trainName}"></td>
+					<td th:text="${trainSearchResult.fare}"></td>
+					<td th:text="${trainSearchResult.noOfVacantSeats}"></td>
+
+
+					<td><a th:href="@{/selectTrain(departureStation=${trainSearchResult.departureStation},destinationStation=${trainSearchResult.destinationStation},departureDate=${trainSearchResult.departureDate},destinationArrivalDate=${trainSearchResult.destinationArrivalDate},departureTime=${trainSearchResult.departureTime},destinationArrivalTime=${trainSearchResult.destinationArrivalTime},trainName=${trainSearchResult.trainName},fare=${trainSearchResult.fare},noOfVacantSeats=${trainSearchResult.noOfVacantSeats})}"
+							class="btn btn-primary">Select This Train</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+
+</html>

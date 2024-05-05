@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<head>
+<title>Revenue</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="" th:href="@{/css/navbar.css}" />
+<link rel="stylesheet" href="" th:href="@{/css/searchTrains.css}" />
+<link rel="stylesheet" href="" th:href="@{/css/statistics.css}" />
+</head>
+<body class="main">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="child">
+				<img src="" th:src="@{/images/logo.png}" class="logo" alt="" />
+			</div>
+		</div>
+		<div class="child col-lg-7 navv" id="nav">
+			<div th:replace="fragments/navbar::navbar" class="nav-item"></div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>Revenue Generated Per Station</h2>
+		<form th:action="@{/revenue}" th:object="${revenue}" method="post">
+			<label for="startDate">From Date</label> <input name="startDate"
+				type="date" th:field="*{startDate}" placeholder="Enter Date"
+				class="form-control col-4 mb-4" /> <label for="endDate">To
+				Date</label> <input name="endDate" type="date" th:field="*{endDate}"
+				placeholder="Enter Date" class="form-control col-4 mb-4" />
+
+			<button type="submit" class="btn btn-primary">Get statistics</button>
+		</form>
+		<div class="graphs">
+			<div id="myPlot"></div>
+			<div id="myDiv"></div>
+		</div>
+		<script type="text/javascript" th:inline="javascript">
+			//var xArray = [[${revenue.stationList}]];
+			//console.log(xArray);
+			var yArray = [[${revenue.getRevenueList()}]];
+			//console.log(yArray);
+			var xArray = [[${revenue.getStationList()}]];
+			console.log(yArray);
+			console.log(xArray);
+			//yArray = [7000,80000,8000,92344,92311,9123,13320,134431,12324,123234,1232235];
+			
+
+			// Define Data
+			var data = [{
+  				x: xArray,
+  				y: yArray,
+  				type:"bar",
+  				text: yArray.map(String),
+  			    textposition: 'auto',
+  			  	marker: {
+    			    color: 'rgb(61,6,115)'
+    			  }
+			}];
+
+			// Define Layout
+			var layout = {
+  				xaxis: { title: "Stations"},
+  				yaxis: {range: [0, 50000], title: "Revenue generated(in yen)"},  
+  				title: "Revenue generated/station",
+  				
+			};
+			
+			// Display using Plotly
+			Plotly.newPlot("myPlot", data, layout);
+			
+			var data1 = [{
+				  values: yArray,
+				  labels: xArray,
+				  type: 'pie'
+				}];
+
+				var layout = {
+				  height: 400,
+				  width: 500
+				};
+
+				Plotly.newPlot("myDiv", data1, layout);
+		</script>
+
+	</div>
+
+
+
+</body>
+
+</html>

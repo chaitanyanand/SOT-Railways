@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light"
+	th:fragment="navbar">
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarNav" aria-controls="navbarNav"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+
+			<li th:if="${#session.getAttribute('User').getRole()} == 'user'"
+				class="nav-item"><a class="nav-link" href="/searchTrains">Home</a>
+			</li>
+			<li th:if="${#session.getAttribute('User').getRole()} != 'user'"
+				class="nav-item"><a class="nav-link" href="/searchUser">Home</a>
+			</li>
+				<li th:if="${#session.getAttribute('User').getRole()} != 'user'"
+				class="nav-item"><a class="nav-link" href="/searchUser">Search User</a>
+			</li>
+			<li th:if="${#session.getAttribute('User').getRole()} == 'user'"
+				class="nav-item"><a class="nav-link" href="/history">History</a></li>
+			<li th:if="${#session.getAttribute('User').getRole()} == 'user'"
+				class="nav-item"><a class="nav-link" href="/upcomingJourneys">Upcoming
+					Journeys</a></li>
+			<li th:if="${#session.getAttribute('User').getRole()} == 'user'"
+				class="nav-item"><a class="nav-link" href="/searchTrains">Book
+					Ticket</a>
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'scheduleAdmin'"
+				class="nav-item"><a class="nav-link" href="/showStations">Stations</a>
+			</li>
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'scheduleAdmin'"
+				class="nav-item"><a class="nav-link" href="/showTrains">Trains</a>
+			</li>
+
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'financeAdmin'"
+				class="nav-item"><a class="nav-link" href="/ticketFare">Ticket
+					Fare</a></li>
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'financeAdmin'"
+				class="nav-item"><a class="nav-link" href="/revenue">Revenue</a>
+			</li>
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'financeAdmin'"
+				class="nav-item"><a class="nav-link" href="/footfall">Footfall</a>
+			</li>
+			<li
+				th:if="${#session.getAttribute('User').getRole()} == 'financeAdmin'"
+				class="nav-item"><a class="nav-link" href="/hourlyFootfall">Hourly
+					Footfall</a></li>
+
+			<li th:if="${#session.getAttribute('User').getRole()} == 'user'"
+				class="nav-item"><a class="nav-link" th:href="@{/contactUs}">Contact Us</a>
+			</li>
+			<!-- <li class="nav-item"><a class="nav-link" th:href="@{/login}">login</a>
+			</li> -->
+			<li th:if="${#session.getAttribute('User') != null} "
+				class="nav-item"><a class="nav-link" th:href="@{/logout}">logout</a>
+			</li>
+
+		</ul>
+	</div>
+</nav>

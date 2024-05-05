@@ -1,0 +1,40 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Update ticket Fare</title>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	  crossorigin="anonymous">
+	<link rel="stylesheet" href="" th:href="@{/css/navbar.css}"/>
+	<link rel="stylesheet" href="" th:href="@{/css/searchTrains.css}"/>
+	<link rel="stylesheet" href="" th:href="@{/css/addStation.css}"/>
+</head>
+<body class="main">
+<div class="row">
+<div class="col-lg-5">
+	<div class="child"><img src="" th:src="@{/images/logo.png}" class="logo" alt=""/></div>
+	</div>
+	<div class="child col-lg-7 navv" id="nav">
+		<div th:if="${User.role}=='user'"
+			th:replace="fragments/navbar::navbar" class="nav-item"></div>
+			</div>
+			</div>
+	<div class="container">
+		<h2>Update Ticket Fare</h2>
+		<hr />
+		<form th:action="@{/saveTicketFare}" th:object="${ticketFare}" method="post" class="frm">
+			<label for="fareDuringNonPeakHour">Fare During Non-Peak Hour</label>
+			<input name="fareDuringNonPeakHour" type="text" th:field="*{fareDuringNonPeakHour}" placeholder="Enter fare amount" class="form-control col-4 mb-4"/>
+			<label for="fareDuringPeakHour">Fare During Peak Hour</label>
+			<input name="fareDuringPeakHour" type="text" th:field="*{fareDuringPeakHour}" placeholder="Enter fare amount" class="form-control col-4 mb-4"/>
+			<label for="peakHourStart">Peak Hour Starts from this time</label>
+			<input name="peakHourStart" type="time" th:field="*{peakHourStart}" placeholder="Enter time" class="form-control col-4 mb-4"/>
+			<label for="peakHourEnd">Peak Hour End By this time</label>
+			<input name="peakHourEnd" type="time" th:field="*{peakHourEnd}" placeholder="Enter time" class="form-control col-4 mb-4"/>
+			<button type="submit" class="btn btn-primary">Save</button>	
+		</form>
+	</div>
+</body>
+
+</html>

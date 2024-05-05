@@ -1,0 +1,56 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>ConfirmCancellation</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+	<div th:replace="fragments/navbar::navbar"></div>
+		<h2>Cancellation</h2>
+		<hr />
+		<h3 style="color:blue">Please confirm to cancel the below ticket.<span>&nbsp&nbsp</span><span ><a th:href="@{/cancelTicket(ticketId=${ticket.Id})}"class="btn btn-danger">confirm</a></span></h3>
+		<table class="table table-bordered table-striped" id="ticket-table">
+			<thead>
+				<tr>
+				    <th> Ticket Number</th>
+			        <th> Number Of Seats</th>
+					<th>Departure Station</th>
+					<th>Destination Station</th>
+					<th>Departure Date</th>
+					<th>Destination Arrival Date</th>
+					<th>Departure Time</th>
+					<th>Destination Arrival Time</th>
+					<th>Train Name</th>
+					<th>Ticket Fare</th>
+					<th>payment Type</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				    <td th:text="${ticket.ticketNumber}"></td>
+				    <td th:text="${ticket.noOfSeatsBooked}"/>
+					<td th:text="${ticket.departureStationName}"></td>
+					<td th:text="${ticket.destinationStationName}"></td>
+					<td th:text="${ticket.departureDate}"></td>
+					<td th:text="${ticket.destinationArrivalDate}"></td>
+					<td th:text="${ticket.departureTime}"></td>
+					<td th:text="${ticket.destinationArrivalTime}"></td>
+					<td th:text="${ticket.trainName}"></td>
+					<td th:text="${ticket.fare}"></td>
+					<td th:text="${ticket.paymentType}"/>
+				</tr>
+
+			</tbody>
+		</table>
+		
+	</div>
+	
+</body>
+
+</html>

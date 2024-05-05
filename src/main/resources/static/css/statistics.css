@@ -1,0 +1,25 @@
+#myPlot{
+	width: 65% !important;
+	height: 50% !important;
+}
+.container{
+	width: 160rem !important;
+	padding-right: 4rem !important;
+	margin-bottom: 2rem !important;
+	object-fit: contain;
+}
+#myDiv{
+	margin-top: 3rem !important;
+	width: 30% !important;
+	height: 25% !important;
+}
+.graphs{
+	display: inline-block;
+}
+#extension{
+	height: 190vh !important;
+}
+#myPlot2{
+	width: 65% !important;
+	height: 40% !important;
+}

@@ -1,0 +1,11 @@
+.options{
+	color: white !important;
+}
+.labe{
+	color: #6300c6 !important;
+	background-color: #dbcced !important;
+	opacity: 0.9;
+	border-radius: 2px !important;
+	padding : 0.1rem 1rem 0.1rem 1rem;
+	font-weight: bolder !important;
+}

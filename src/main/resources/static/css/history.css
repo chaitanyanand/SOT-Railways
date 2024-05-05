@@ -1,0 +1,32 @@
+.main{
+	background-image:url('../images/train_background.jpg');
+	height: 100%;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	  background-attachment: fixed;
+}
+h2{
+	color: white !important;
+	font-weight: bolder !important;
+}
+th{
+	color: white !important;
+	font-weight: bolder !important;
+}
+td{
+	color: white !important;
+}
+.table{
+	background-color:  #6300c6 !important;
+}
+.btn-primary{
+	background-color: #dbcced !important;
+	color: #6300c6 !important;
+}
+.btn:hover{
+	color: white !important;
+}
+.btn{
+	font-weight: bolder !important;
+}

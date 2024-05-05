@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<style>
+h1 {
+	text-align: center;
+	color: red
+}
+</style>
+<title>Home</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/navbar.css}" />
+</head>
+<body class="main">
+<div class="row">
+		<div class="col-lg-5">
+			<div class="child"><img src="" th:src="@{/images/logo.png}" class="logo" alt="" /></div>
+		</div>
+		<div class="child col-lg-7 navv" id="nav">
+	<div th:replace="fragments/guestUserNavbar::guestUserNavbar"></div>
+	</div>
+	</div>
+	<div class="container">
+		<div class="child">
+	<h4 th:text="'Hi, Welcome to SOT Railways! '" class="username"></h4>
+	</div>
+	</div>
+</body>
+
+</html>

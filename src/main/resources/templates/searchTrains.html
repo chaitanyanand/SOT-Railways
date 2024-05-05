@@ -1,0 +1,78 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>SOT Railways</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="" th:href="@{/css/navbar.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/searchTrains.css}" />
+</head>
+
+<body class="main">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="child"><img src="" th:src="@{/images/logo.png}" class="logo" alt="" /></div>
+		</div>
+		<div class="child col-lg-7 navv" id="nav">
+			<div th:if="${#session.getAttribute('User')} != null">
+				<div th:replace="fragments/navbar::navbar"></div>
+			</div>
+			<div th:if="${#session.getAttribute('User')} == null">
+				<div th:replace="fragments/guestUserNavbar::guestUserNavbar"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<h3 class="mt-2">Search Trains</h3>
+		<br>
+		<h3 th:text="${message}"></h3>
+		<form class="form-dropdown " th:action="@{/trainSearchResult}" th:object="${searchContent}" method="post">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 form-group">
+					<p class=" fill-in box subtitle font-weight-bold">Departure Station</p>
+					<select class="form-control border-radius" id="sel1" th:field="*{departureStation}">
+						<option th:each="station : ${searchContent.allStations}" th:value="${station.name}"
+							th:text="${station.name}">
+						</option>
+					</select>
+				</div>
+
+				<div class="col-md-3 col-sm-6 form-group">
+
+					<p class="fill-in box subtitle font-weight-bold">Destination Station</p>
+					<select class="form-control border-radius" id="sel2" th:field="*{destinationStation}">
+						<option th:each="station : ${searchContent.allStations}" th:value="${station.name}"
+							th:text="${station.name}">
+						</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row mt-4">
+				<div class="col-md-3 col-sm-6">
+					<div class="form-group">
+						<p class="fill-in box subtitle font-weight-bold">Departure Date</p>
+						<input required type="date" class="form-control border-radius border-right"
+							th:field="*{departureDate}" placeholder="YYYY-MM-DD" />
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-4 col-sm-8">
+					<input class="btn btn-primary" type="submit" value="Search" />
+					<input class="btn btn-danger" type="reset" value="Reset" />
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

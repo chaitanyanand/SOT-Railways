@@ -1,0 +1,27 @@
+.child{
+	display: inline-block;
+}
+.logo{
+	color: #3D0673;
+	width: 6rem;
+	height: 6rem;
+	margin-left: 2rem;
+	margin-top:1rem;
+	
+}.nav-item{
+	font-size: 1rem;
+	color: white;
+	font-weight: 900;
+}
+#nav{
+	background-color: #6300c6;
+}
+.navv{
+	height: 3.5rem;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white
+}

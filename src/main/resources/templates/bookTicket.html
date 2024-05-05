@@ -1,0 +1,100 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Book Ticket</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="" th:href="@{/css/navbar.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/history.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/bookTicket.css}" />
+
+	<style>
+		#pk {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body class="main">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="child"><img src="" th:src="@{/images/logo.png}" class="logo" alt="" /></div>
+		</div>
+		<div class="child col-lg-7 navv" id="nav">
+			<div th:if="${#session.getAttribute('User')} != null">
+				<div th:replace="fragments/navbar::navbar" class="nav-item"></div>
+			</div>
+			<div th:if="${#session.getAttribute('User')} == null">
+				<div th:replace="fragments/guestUserNavbar::guestUserNavbar" class="nav-item"></div>
+			</div>
+		</div>
+		<div class="container">
+			<h2>Ticket Details</h2>
+			<hr />
+
+			<table class="table table-bordered table-striped" id="ticket-table">
+				<thead>
+					<tr>
+						<th>Departure Station</th>
+						<th>Destination Station</th>
+						<th>Departure Date</th>
+						<th>Destination Arrival Date</th>
+						<th>Departure Time</th>
+						<th>Arrival Time</th>
+						<th>Train Name</th>
+						<th>Ticket Fare</th>
+						<th>Vacant Seats</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td th:text="${ticket.departureStationName}"></td>
+						<td th:text="${ticket.destinationStationName}"></td>
+						<td th:text="${ticket.departureDate}"></td>
+						<td th:text="${ticket.destinationArrivalDate}"></td>
+						<td th:text="${ticket.departureTime}"></td>
+						<td th:text="${ticket.destinationArrivalTime}"></td>
+						<td th:text="${ticket.trainName}"></td>
+						<td th:text="${ticket.fare}"></td>
+						<td th:text="${ticket.noOfVacantSeats}"></td>
+
+					</tr>
+
+				</tbody>
+			</table>
+			<form th:action="@{/bookTicket}" class="form-dropdown" th:object="${ticket}" method="post">
+
+				<div class="col-md-3 col-sm-6 form-group">
+					<label for="noOfSeats" class="labe">Select Number Of Seats</label> <select
+						class="form-control border-radius" id="sel1" name="noOfSeats" th:field="*{noOfSeatsBooked}">
+						<option th:value="1" th:text="1"></option>
+						<option th:value="2" th:text="2"></option>
+						<option th:value="3" th:text="3"></option>
+						<option th:value="4" th:text="4"></option>
+						<option th:value="5" th:text="5"></option>
+						<option th:value="6" th:text="6"></option>
+					</select>
+				</div>
+				<div class=" ml-3 col-md-3 col-sm-6 form-check options">
+					<input class="form-check-input" type="radio" name="paymentType" id="cash" value="Cash" checked>
+					<label class="form-check-label" for="cash">Cash</label>
+				</div>
+				<div class="ml-3 col-md-3 col-sm-6 form-check options">
+					<input class="form-check-input" type="radio" name="paymentType" id="card" value="Card" checked>
+					<label class="form-check-label" for="card">Card</label>
+				</div>
+				<input type="hidden" th:field="*{departureStationName}" /> <input type="hidden"
+					th:field="*{destinationStationName}" /> <input type="hidden" th:field="*{departureDate}" /><input
+					type="hidden" th:field="*{destinationArrivalDate}" /> <input type="hidden"
+					th:field="*{departureTime}" /> <input type="hidden" th:field="*{destinationArrivalTime}" /> <input
+					type="hidden" th:field="*{trainName}" /><input type="hidden" th:field="*{fare}" /> <input
+					type="hidden" th:field="*{noOfVacantSeats}" />
+				<button id="pk" type="submit" class="ml-3 btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+
+</body>
+
+</html>
